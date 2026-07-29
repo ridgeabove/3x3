@@ -1,0 +1,4 @@
+# Cloudflare Pages: this is a single-page app, so every route must serve
+# index.html and let React Router resolve it. Without this, opening or
+# refreshing /live, /standings or /admin returns a 404.
+/*    /index.html   200

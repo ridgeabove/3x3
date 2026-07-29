@@ -1,0 +1,205 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   3x3 ALBANIA — design tokens
+   Style: Kinetic Brutalism. Acid yellow / black / red poster look.
+   0px radius, 2px borders, uppercase display type.
+   --------------------------------------------------------------- */
+@theme {
+  /* surfaces */
+  --color-ink: #08090a;
+  --color-panel: #131417;
+  --color-panel-2: #1c1e22;
+  --color-line: #2b2e33;
+  --color-line-strong: #43474d;
+
+  /* brand */
+  --color-brand: #ffc300;
+  --color-brand-dark: #d8a300;
+  --color-brand-ink: #08090a;
+  --color-red: #e11d2a;
+  --color-red-dark: #a4111b;
+
+  /* text */
+  --color-fg: #ffffff;
+  --color-fg-mid: #b9bec4;
+  --color-fg-dim: #8b9198;
+
+  /* semantic */
+  --color-win: #ffc300;
+  --color-ok: #23c552;
+
+  --font-display: 'Russo One', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'Chakra Petch', system-ui, -apple-system, sans-serif;
+
+  --radius-none: 0px;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background: var(--color-ink);
+    /* never let mobile browsers auto-inflate our type */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    font-synthesis-weight: none;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  button,
+  input,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* Visible focus ring everywhere — never removed. */
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  /* Scores, clocks and table columns must not jitter as digits change. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+}
+
+@layer utilities {
+  /* the diagonal grunge wash from the poster, as a cheap CSS gradient */
+  .bg-grit {
+    background-image:
+      linear-gradient(135deg, rgba(255, 195, 0, 0.09) 0%, transparent 42%),
+      linear-gradient(315deg, rgba(225, 29, 42, 0.07) 0%, transparent 48%);
+  }
+
+  .bg-brand-grit {
+    background-color: var(--color-brand);
+    background-image:
+      repeating-linear-gradient(
+        118deg,
+        rgba(0, 0, 0, 0.07) 0px,
+        rgba(0, 0, 0, 0.07) 2px,
+        transparent 2px,
+        transparent 7px
+      );
+  }
+
+  /* thick brutalist edge used on cards and rows */
+  .edge {
+    border: 2px solid var(--color-line);
+  }
+
+  .edge-brand {
+    border: 2px solid var(--color-brand);
+  }
+
+  .stamp {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .press {
+    transition:
+      background-color 120ms ease-out,
+      color 120ms ease-out,
+      border-color 120ms ease-out,
+      transform 120ms ease-out;
+  }
+
+  .press:active {
+    transform: scale(0.985);
+  }
+}
+
+/* LIVE pulse — the only ambient motion in the app. */
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.live-dot {
+  animation: livePulse 1.4s ease-in-out infinite;
+}
+
+@keyframes barSweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.bar-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 195, 0, 0.35), transparent);
+  animation: barSweep 1.6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .live-dot {
+    animation: none;
+    opacity: 1;
+  }
+}
