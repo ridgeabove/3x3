@@ -1,0 +1,16 @@
+# Cloudflare Workers deployment.
+#
+# This is a static single-page app: there is no server code, just the Vite build
+# in ./dist. Declaring the assets explicitly stops wrangler from trying to
+# auto-configure a framework (that path requires Vite 6+ and a Worker entry
+# point, neither of which this site needs).
+name = "3x3"
+compatibility_date = "2026-07-01"
+
+[assets]
+directory = "./dist"
+
+# React Router owns the URLs, so any unknown path must return index.html and let
+# the app resolve it. Without this, opening or refreshing /live, /standings or
+# /admin would 404.
+not_found_handling = "single-page-application"
