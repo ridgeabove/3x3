@@ -94,19 +94,26 @@ export default function InfoPage() {
           literal here instead of becoming design tokens: nothing else in the app
           should ever reuse them.
         */}
-        <div className="mt-3 flex items-center justify-center gap-1">
-          <span className="stamp text-[11px] leading-none tracking-[0.14em]">
-            <span className="text-[#9f6bf2]">POWERED</span>{' '}
-            <span className="text-[#f97316]">BY</span>
-          </span>
-          <img
-            src="/LogoNoBG.png"
-            alt="Ridge"
-            width="843"
-            height="488"
-            loading="lazy"
-            className="h-10 w-auto object-contain"
-          />
+        <div className="mt-3 flex justify-center">
+          <a
+            href="https://ridgeabove.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="press inline-flex min-h-11 items-center gap-1 px-2 hover:opacity-75"
+          >
+            <span className="stamp text-[11px] leading-none tracking-[0.14em]">
+              <span className="text-[#9f6bf2]">POWERED</span>{' '}
+              <span className="text-[#f97316]">BY</span>
+            </span>
+            <img
+              src="/LogoNoBG.png"
+              alt="Ridge"
+              width="843"
+              height="488"
+              loading="lazy"
+              className="h-10 w-auto object-contain"
+            />
+          </a>
         </div>
       </div>
     </>
