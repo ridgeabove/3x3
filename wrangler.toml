@@ -7,6 +7,11 @@
 name = "3x3"
 compatibility_date = "2026-07-01"
 
+# Publish to https://3x3.<account-subdomain>.workers.dev. Without this the
+# deploy still succeeds but the Worker has no route, so nothing is reachable.
+# Swap to a custom domain later under Settings -> Domains & Routes.
+workers_dev = true
+
 [assets]
 directory = "./dist"
 
