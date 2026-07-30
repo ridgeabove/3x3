@@ -6,7 +6,8 @@ import { useMatch } from '../hooks/useTournament'
 import { RULES, foulPenalty } from '../lib/rules'
 import { formatClock, formatShotClock, remainingMs, shotClockMs, useTicker } from '../lib/clock'
 import { timeLabel, shortDate } from '../lib/dates'
-import { Band, Crest, LiveBadge, Spinner, ErrorState, EmptyState } from '../components/ui'
+import { Band, Crest, LiveBadge, ErrorState, EmptyState } from '../components/ui'
+import { MatchDetailSkeleton } from '../components/Skeletons'
 
 function Clocks({ match }) {
   const { t } = useI18n()
@@ -196,7 +197,7 @@ export default function MatchDetail() {
   const { teamById, groupById, playerById, playersByTeam } = useData()
   const { match, events, loading, error, reload } = useMatch(matchId)
 
-  if (loading) return <Spinner />
+  if (loading) return <MatchDetailSkeleton />
   if (error === 'not-found') {
     return <EmptyState title={t('noData')} action={<Link to="/" className="stamp mt-3 text-brand">{t('back')}</Link>} />
   }

@@ -6,7 +6,8 @@ import { useDivision } from '../hooks/useDivision'
 import { dayKey } from '../lib/dates'
 import DateStrip from '../components/DateStrip'
 import MatchList from '../components/MatchList'
-import { Spinner, ErrorState, EmptyState, Band } from '../components/ui'
+import { ErrorState, EmptyState, Band } from '../components/ui'
+import { MatchesSkeleton } from '../components/Skeletons'
 
 export default function Matches() {
   const { t } = useI18n()
@@ -30,7 +31,7 @@ export default function Matches() {
   const dayMatches = scoped.filter((m) => m.scheduled_at && dayKey(m.scheduled_at) === day)
   const unscheduled = scoped.filter((m) => !m.scheduled_at)
 
-  if (loading) return <Spinner />
+  if (loading) return <MatchesSkeleton />
   if (error) return <ErrorState message={error} onRetry={reload} />
 
   return (

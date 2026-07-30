@@ -4,14 +4,15 @@ import { useData } from '../hooks/DataProvider'
 import { useDivision } from '../hooks/useDivision'
 import StandingsTable from '../components/StandingsTable'
 import Bracket from '../components/Bracket'
-import { Band, Spinner, ErrorState, EmptyState } from '../components/ui'
+import { Band, ErrorState, EmptyState } from '../components/ui'
+import { StandingsSkeleton } from '../components/Skeletons'
 
 export default function Standings() {
   const { t, pick } = useI18n()
   const { divisions, groups, teams, matches, loading, error, reload } = useData()
   const { division } = useDivision()
 
-  if (loading) return <Spinner />
+  if (loading) return <StandingsSkeleton />
   if (error) return <ErrorState message={error} onRetry={reload} />
 
   const shown = divisions.filter((d) => division === 'all' || d.id === division)

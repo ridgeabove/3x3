@@ -4,7 +4,8 @@ import { ArrowLeft } from 'lucide-react'
 import { useI18n } from '../lib/i18n'
 import { useData } from '../hooks/DataProvider'
 import { supabase } from '../lib/supabase'
-import { Band, Crest, Spinner, EmptyState } from '../components/ui'
+import { Band, Crest, EmptyState } from '../components/ui'
+import { TeamDetailSkeleton } from '../components/Skeletons'
 import MatchList from '../components/MatchList'
 
 /** Total points each player has scored across the whole tournament. */
@@ -60,7 +61,7 @@ export default function TeamDetail() {
   const { teamById, groupById, divisionById, playersByTeam, matches, loading } = useData()
   const playerPoints = usePlayerPoints(teamId)
 
-  if (loading) return <Spinner />
+  if (loading) return <TeamDetailSkeleton />
 
   const team = teamById.get(teamId)
   if (!team) return <EmptyState title={t('noData')} />

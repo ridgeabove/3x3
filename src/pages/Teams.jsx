@@ -3,14 +3,15 @@ import { ChevronRight, Users } from 'lucide-react'
 import { useI18n } from '../lib/i18n'
 import { useData } from '../hooks/DataProvider'
 import { useDivision } from '../hooks/useDivision'
-import { Band, Crest, Spinner, ErrorState, EmptyState } from '../components/ui'
+import { Band, Crest, ErrorState, EmptyState } from '../components/ui'
+import { TeamsSkeleton } from '../components/Skeletons'
 
 export default function Teams() {
   const { t, pick } = useI18n()
   const { divisions, teams, groupById, playersByTeam, loading, error, reload } = useData()
   const { division } = useDivision()
 
-  if (loading) return <Spinner />
+  if (loading) return <TeamsSkeleton />
   if (error) return <ErrorState message={error} onRetry={reload} />
 
   const shown = divisions.filter((d) => division === 'all' || d.id === division)

@@ -172,6 +172,31 @@
   animation: livePulse 1.4s ease-in-out infinite;
 }
 
+/* Skeleton placeholder: a panel block with a single brand-tinted sweep. */
+@keyframes skeletonSweep {
+  from {
+    background-position: -150% 0;
+  }
+  to {
+    background-position: 150% 0;
+  }
+}
+
+.skeleton {
+  background-color: var(--color-panel-2);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 42%,
+    rgba(255, 195, 0, 0.13) 50%,
+    rgba(255, 255, 255, 0.06) 58%,
+    transparent 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 150% 100%;
+  animation: skeletonSweep 1.3s ease-in-out infinite;
+}
+
 @keyframes barSweep {
   from {
     transform: translateX(-100%);
@@ -201,5 +226,10 @@
   .live-dot {
     animation: none;
     opacity: 1;
+  }
+
+  .skeleton {
+    animation: none;
+    background-image: none;
   }
 }

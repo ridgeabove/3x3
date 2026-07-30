@@ -3,7 +3,8 @@ import { useI18n } from '../lib/i18n'
 import { useData } from '../hooks/DataProvider'
 import { useDivision } from '../hooks/useDivision'
 import MatchList from '../components/MatchList'
-import { Spinner, ErrorState, EmptyState, Band } from '../components/ui'
+import { ErrorState, EmptyState, Band } from '../components/ui'
+import { LiveSkeleton } from '../components/Skeletons'
 
 export default function Live() {
   const { t } = useI18n()
@@ -17,7 +18,7 @@ export default function Live() {
     .sort((a, b) => new Date(a.scheduled_at) - new Date(b.scheduled_at))
     .slice(0, 5)
 
-  if (loading) return <Spinner />
+  if (loading) return <LiveSkeleton />
   if (error) return <ErrorState message={error} onRetry={reload} />
 
   return (
