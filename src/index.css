@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* ---------------------------------------------------------------
-   3x3 ALBANIA — design tokens
+   3x3 ALBANIA design tokens
    Style: Kinetic Brutalism. Acid yellow / black / red poster look.
    0px radius, 2px borders, uppercase display type.
    --------------------------------------------------------------- */
@@ -79,7 +79,7 @@
     cursor: pointer;
   }
 
-  /* Visible focus ring everywhere — never removed. */
+  /* Visible focus ring everywhere. Never removed. */
   :focus-visible {
     outline: 3px solid var(--color-brand);
     outline-offset: 2px;
@@ -157,7 +157,7 @@
   }
 }
 
-/* LIVE pulse — the only ambient motion in the app. */
+/* LIVE pulse: the only ambient motion in the app. */
 @keyframes livePulse {
   0%,
   100% {

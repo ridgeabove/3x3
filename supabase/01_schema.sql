@@ -1,5 +1,5 @@
 -- ============================================================================
---  3x3 ALBANIA — database schema
+--  3x3 ALBANIA database schema
 --  Run this once in the Supabase SQL editor (Dashboard -> SQL Editor -> New query).
 --  Safe to re-run: everything is guarded with "if not exists" / "or replace".
 -- ============================================================================
@@ -61,7 +61,7 @@ create table if not exists matches (
   group_id     uuid references groups (id) on delete set null,
   stage        text not null default 'group'
                  check (stage in ('group', 'qf', 'sf', 'third', 'final')),
-  slot_label   text,                       -- 'QF1', 'SF2' — used to wire the bracket
+  slot_label   text,                       -- 'QF1', 'SF2'; used to wire the bracket
   court        text,
   scheduled_at timestamptz,
   sort_order   int not null default 0,
@@ -151,7 +151,7 @@ end $$;
 
 -- Realtime: push scoreboard + play-by-play changes to every open browser.
 -- Already-added tables are fine. If the publication is missing entirely, this
--- raises a notice instead of failing the script — enable Realtime for `matches`
+-- raises a notice instead of failing the script. Enable Realtime for `matches`
 -- and `match_events` under Database -> Replication and re-run.
 do $$
 declare t text;
@@ -520,7 +520,7 @@ begin
   select * into m from matches where id = p_match for update;
   if not found then raise exception 'Match not found'; end if;
   if m.home_score = m.away_score then
-    raise exception 'Scores are level — start overtime instead of finishing.';
+    raise exception 'Scores are level. Start overtime instead of finishing.';
   end if;
 
   v_winner := case when m.home_score > m.away_score then m.home_team_id

@@ -1,13 +1,13 @@
 /**
  * FIBA 3x3 rules, in one place.
- * https://fiba3x3.com — official rules of the game.
+ * https://fiba3x3.com (official rules of the game).
  */
 export const RULES = {
   /** Regulation length: 10 minutes of running clock. */
   REGULATION_SECONDS: 600,
   /** First team to 21 wins immediately, even with time left. */
   TARGET_SCORE: 21,
-  /** Overtime is untimed in practice — first to 2 points wins. */
+  /** Overtime is untimed in practice: first to 2 points wins. */
   OVERTIME_SECONDS: 120,
   OVERTIME_TARGET: 2,
   /** 12-second shot clock. */

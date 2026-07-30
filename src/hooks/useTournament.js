@@ -5,7 +5,7 @@ import { syncServerTime } from '../lib/clock'
 /**
  * One shared load of the slow-moving data (divisions, groups, teams, players).
  * It changes only when the admin edits the draw, so a single fetch plus a manual
- * refresh is plenty — no need to keep a socket open for it.
+ * refresh is plenty. No need to keep a socket open for it.
  */
 export function useTournament() {
   const [state, setState] = useState({ loading: true, error: null, data: null })

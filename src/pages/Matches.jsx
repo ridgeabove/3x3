@@ -37,7 +37,7 @@ export default function Matches() {
     <>
       <DateStrip selected={day} onSelect={setDay} counts={counts} />
 
-      {/* Live games stay inline in the day list, highlighted — same as Flashscore.
+      {/* Live games stay inline in the day list, highlighted, same as Flashscore.
           The LIVE tab and the header badge cover "what's on right now". */}
       {dayMatches.length > 0 ? (
         <MatchList matches={dayMatches} />

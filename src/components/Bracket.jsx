@@ -48,13 +48,13 @@ function BracketMatch({ match }) {
       </div>
       <Side
         name={home?.name ?? match.home_label ?? t('tbd')}
-        score={showScore ? match.home_score : '–'}
+        score={showScore ? match.home_score : '-'}
         isWinner={decided && match.winner_team_id === match.home_team_id}
         decided={decided}
       />
       <Side
         name={away?.name ?? match.away_label ?? t('tbd')}
-        score={showScore ? match.away_score : '–'}
+        score={showScore ? match.away_score : '-'}
         isWinner={decided && match.winner_team_id === match.away_team_id}
         decided={decided}
       />
@@ -63,7 +63,7 @@ function BracketMatch({ match }) {
 }
 
 /**
- * Knockout rounds as stacked columns — on a phone a real tree with connector
+ * Knockout rounds as stacked columns. On a phone a real tree with connector
  * lines is unreadable, so each round gets its own labelled block instead.
  */
 export default function Bracket({ matches }) {

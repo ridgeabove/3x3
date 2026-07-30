@@ -28,7 +28,7 @@ import { Band, Button, Field, Input, Spinner, ErrorState, EmptyState } from '../
 import AdminBar from './AdminBar'
 
 /**
- * Bottom sheet asking which player did it. Skippable — during a fast game the
+ * Bottom sheet asking which player did it. Skippable, because during a fast game the
  * operator can log the team action now and never be blocked on a name.
  */
 function PlayerSheet({ open, title, players, onPick, onClose }) {
@@ -204,7 +204,7 @@ export default function Console() {
   return (
     <>
       <AdminBar
-        title={`${home?.name ?? t('tbd')} – ${away?.name ?? t('tbd')}`}
+        title={`${home?.name ?? t('tbd')} v ${away?.name ?? t('tbd')}`}
         right={
           <span className="stamp shrink-0 text-[10px] text-fg-dim">
             {stageLabel(t, match.stage)}
@@ -214,7 +214,7 @@ export default function Console() {
 
       {noTeams && (
         <p className="border-b-2 border-red bg-panel px-3 py-2 text-[12px] text-red">
-          {t('tbd')} — {t('editMatch')}
+          {t('tbd')} · {t('editMatch')}
         </p>
       )}
 
@@ -376,7 +376,7 @@ export default function Console() {
                 {e.kind === 'point' ? `+${e.points}` : e.kind === 'foul' ? t('foul') : t('timeout')}
               </span>
               <span className="min-w-0 flex-1 truncate text-fg-mid">
-                {player?.name ?? team?.name ?? '—'}
+                {player?.name ?? team?.name ?? '-'}
               </span>
             </li>
           )

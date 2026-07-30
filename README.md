@@ -1,4 +1,4 @@
-# 3x3 Albania — Shkoder
+# 3x3 Albania | Shkoder
 
 Live scoring site for the 11th edition. Mobile-first, Flashscore-style match list,
 with an admin console that runs the clock, the score and the fouls in real time.
@@ -7,7 +7,7 @@ Everything a viewer sees updates the moment the scorekeeper taps a button.
 - **Public**: matches by day, live tab, teams and rosters, group standings, knockout bracket, event info
 - **Admin**: email login, group draw, automatic fixture and bracket generation, live match console
 - **Languages**: Albanian (default) and English, toggled in the header
-- **Rules**: official FIBA 3x3 — 10 minutes or first to 21, 1/2 point scoring, 12s shot clock, team-foul penalties, first-to-2 overtime
+- **Rules**: official FIBA 3x3, so 10 minutes or first to 21, 1/2 point scoring, 12s shot clock, team-foul penalties, first-to-2 overtime
 
 ## Stack
 
@@ -25,7 +25,7 @@ React 18 · Vite 5 · Tailwind CSS 4 · React Router 6 · Supabase (Postgres + R
    This loads the two tournaments plus all 20 teams and their rosters. It ends
    with a count so you can confirm 14 U18 teams and 6 women's teams landed.
 4. Create the admin user: **Authentication → Users → Add user**. Set an email and
-   password and tick *Auto Confirm User*. Repeat for each scorekeeper — anyone
+   password and tick *Auto Confirm User*. Repeat for each scorekeeper. Anyone
    who can sign in can score any match.
 
 > Signup is not exposed anywhere in the app. Accounts exist only if you create
@@ -47,7 +47,7 @@ VITE_SUPABASE_URL=https://xxxxxxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOi...
 ```
 
-The anon key is safe to ship in the browser — row-level security is what
+The anon key is safe to ship in the browser. Row-level security is what
 protects the data. Reads are public; every write requires a signed-in user.
 
 If `.env` is missing the app still loads and tells you what to add instead of
@@ -55,25 +55,25 @@ showing a blank screen.
 
 ## 3. Run a tournament
 
-**Before the event** — `/admin` → *Grupet dhe kalendari*:
+**Before the event**, go to `/admin` → *Grupet dhe kalendari*:
 
 1. Pick a tournament (U18 / Women).
 2. Add groups (A, B, C, D) and assign each team to one.
-3. *Gjenero ndeshjet e grupit* — set the first tip-off time, minutes per slot and
+3. *Gjenero ndeshjet e grupit*: set the first tip-off time, minutes per slot and
    the court names (`1, 2`), then generate. Every team plays every other team in
    its group once, spread across the courts you listed. Re-running replaces the
    existing group fixtures, so you can redo a draw safely.
-4. *Gjenero fazen eliminatore* — choose a 4- or 8-team bracket. Matches are
+4. *Gjenero fazen eliminatore*: choose a 4- or 8-team bracket. Matches are
    created with seed placeholders (`A1`, `B2`, `Fituesi SF1`) and wired together:
    when a knockout match finishes, the winner drops into the next round on its own.
    Once the groups are decided, open each knockout match and pick the real teams.
 
-**During a match** — `/admin` → the yellow ▶ button next to it:
+**During a match**, go to `/admin` → the yellow ▶ button next to it:
 
 - **Nis / Ndalo** starts and stops the game clock. The 12-second shot clock
   follows it and resets automatically on every basket, foul and timeout.
-- **+1 / +2** per team. If the team has a roster you'll be asked who scored —
-  tap a name to log it, or *Pa lojtar* to skip and keep moving. This is what
+- **+1 / +2** per team. If the team has a roster you'll be asked who scored.
+  Tap a name to log it, or *Pa lojtar* to skip and keep moving. This is what
   fills in each player's points total.
 - **Faul** counts team fouls. At 7 the panel turns red (2 free throws), at 10 it
   shows free throws + possession.
@@ -119,7 +119,7 @@ public/logos/              3x3 Albania, Bashkia Shkoder, FSHB
 ```
 
 Design tokens (colours, fonts, spacing) live in the `@theme` block at the top of
-[`src/index.css`](src/index.css) — change the yellow there and it changes everywhere.
+[`src/index.css`](src/index.css). Change the yellow there and it changes everywhere.
 
 ## Notes
 

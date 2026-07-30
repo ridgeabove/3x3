@@ -29,7 +29,7 @@ export default function InfoPage() {
       <section className="bg-brand-grit px-4 py-6 text-center">
         <img
           src="/logos/3x3-900.png"
-          alt="3x3 Albania — Shkoder"
+          alt="3x3 Albania, Shkoder"
           width="900"
           height="600"
           className="mx-auto mb-4 w-full max-w-[300px] border-2 border-brand-ink object-contain"

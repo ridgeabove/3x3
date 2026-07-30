@@ -1,5 +1,5 @@
 -- ============================================================================
---  3x3 ALBANIA — seed data (11th edition, Shkoder)
+--  3x3 ALBANIA seed data (11th edition, Shkoder)
 --  Run AFTER 01_schema.sql. Re-running refreshes the rosters without
 --  touching groups, matches or results.
 -- ============================================================================

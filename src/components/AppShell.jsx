@@ -66,7 +66,7 @@ function Header({ liveCount }) {
   )
 }
 
-/** U18 / Women / All — the one filter that applies to most of the app. */
+/** U18 / Women / All: the one filter that applies to most of the app. */
 export function DivisionFilter({ divisions }) {
   const { t, pick } = useI18n()
   const { division, setDivision } = useDivision()

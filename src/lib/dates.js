@@ -31,7 +31,7 @@ export function shortDayName(date, lang) {
   return DAY_SHORT[lang]?.[date.getDay()] ?? DAY_SHORT.en[date.getDay()]
 }
 
-/** "30.07." — the compact form used on the day strip. */
+/** Compact form used on the day strip, e.g. "30.07.". */
 export function shortDate(date) {
   const d = date instanceof Date ? date : new Date(date)
   return `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.`
@@ -45,7 +45,7 @@ export function timeLabel(iso) {
 
 /** "30.07.2026 18:30" for admin lists. */
 export function dateTimeLabel(iso) {
-  if (!iso) return '—'
+  if (!iso) return '-'
   const d = new Date(iso)
   return `${shortDate(d)}${d.getFullYear()} ${timeLabel(iso)}`
 }

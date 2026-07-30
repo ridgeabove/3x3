@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 
 /**
- * Albanian is the default — this is a Shkoder event. English is one tap away
+ * Albanian is the default, since this is a Shkoder event. English is one tap away
  * in the header for visiting players and referees.
  */
 const STRINGS = {
@@ -107,10 +107,10 @@ const STRINGS = {
     contestDunk: 'Konkursi i dunk-eve',
     contestPrize: 'Fituesi',
     rulesTitle: 'Rregullat e lojes',
-    rule1: 'Ndeshja zgjat 10 minuta ose deri ne 21 pike — kush arrin i pari.',
+    rule1: 'Ndeshja zgjat 10 minuta ose deri ne 21 pike, kush arrin i pari.',
     rule2: 'Goditjet brenda harkut 1 pike, jashte harkut 2 pike.',
     rule3: 'Ora e goditjes: 12 sekonda.',
-    rule4: 'Faulet 7, 8 dhe 9 — 2 goditje te lira. Nga 10 — 2 goditje te lira + posedim.',
+    rule4: 'Faulet 7, 8 dhe 9: 2 goditje te lira. Nga 10: 2 goditje te lira + posedim.',
     rule5: 'Nje pushim per skuadre. Ne shtese fiton skuadra e para me 2 pike.',
     organisers: 'Organizatoret dhe partneret',
     followUs: 'Ndiqni 3x3 Albania',
@@ -256,7 +256,7 @@ const STRINGS = {
     standingsEmptyHint: 'The admin assigns teams to groups from the panel.',
 
     aboutTitle: '11th Edition',
-    aboutTagline: 'From Shkoder — for the game, for the history, for us.',
+    aboutTagline: 'From Shkoder, for the game, for the history, for us.',
     aboutBody:
       '3x3 Albania returns to Shkoder for its 11th edition: two tournaments, dozens of teams, and live scores right here.',
     contests: 'Special contests',
@@ -264,10 +264,10 @@ const STRINGS = {
     contestDunk: 'Dunk contest',
     contestPrize: 'Winner',
     rulesTitle: 'Rules of the game',
-    rule1: '10 minutes or first to 21 points — whichever comes first.',
+    rule1: '10 minutes or first to 21 points, whichever comes first.',
     rule2: 'Shots inside the arc 1 point, outside the arc 2 points.',
     rule3: 'Shot clock: 12 seconds.',
-    rule4: 'Team fouls 7, 8, 9 — 2 free throws. From 10 — 2 free throws + possession.',
+    rule4: 'Team fouls 7, 8, 9: 2 free throws. From 10: 2 free throws + possession.',
     rule5: 'One timeout per team. In overtime the first team to 2 points wins.',
     organisers: 'Organisers and partners',
     followUs: 'Follow 3x3 Albania',

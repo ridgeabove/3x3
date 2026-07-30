@@ -140,7 +140,7 @@ export default function AdminMatchEdit() {
       <form onSubmit={save} className="space-y-4 px-3 py-4">
         <Field label={t('division')} required>
           <Select value={form.division_id} onChange={set('division_id')} required>
-            <option value="">—</option>
+            <option value="">-</option>
             {divisions.map((d) => (
               <option key={d.id} value={d.id}>
                 {pick(d, 'name')}
@@ -162,7 +162,7 @@ export default function AdminMatchEdit() {
 
           <Field label={t('group')}>
             <Select value={form.group_id} onChange={set('group_id')}>
-              <option value="">—</option>
+              <option value="">-</option>
               {divisionGroups.map((g) => (
                 <option key={g.id} value={g.id}>
                   {g.name}

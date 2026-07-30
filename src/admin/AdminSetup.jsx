@@ -109,7 +109,7 @@ function GroupManager({ division, onError }) {
             <Select
               value={tm.group_id ?? ''}
               onChange={(e) => assign(tm.id, e.target.value)}
-              aria-label={`${t('group')} — ${tm.name}`}
+              aria-label={`${t('group')}: ${tm.name}`}
               className="max-w-[110px]"
             >
               <option value="">{t('noGroup')}</option>
@@ -234,7 +234,7 @@ function FixtureGenerator({ division, onError, onDone }) {
         </Button>
         {existingGroupMatches.length > 0 && (
           <p className="text-[11px] text-fg-dim">
-            {existingGroupMatches.length} {t('matchCount')} — {t('generateFixtures')} ⟳
+            {existingGroupMatches.length} {t('matchCount')} · {t('generateFixtures')} ⟳
           </p>
         )}
       </div>
@@ -406,7 +406,7 @@ function BracketGenerator({ division, onError, onDone }) {
           {t('generateBracket')}
         </Button>
         <p className="text-[11px] leading-relaxed text-fg-dim">
-          {seed(0, 1)} v {seed(1, 2)}, {seed(1, 1)} v {seed(0, 2)} … — {t('editMatch')}.
+          {seed(0, 1)} v {seed(1, 2)}, {seed(1, 1)} v {seed(0, 2)} … · {t('editMatch')}.
         </p>
       </div>
     </>

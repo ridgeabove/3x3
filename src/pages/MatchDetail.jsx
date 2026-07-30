@@ -143,7 +143,7 @@ function EventFeed({ events, teamById, playerById, match }) {
               {kindLabel}
             </span>
             <span className="min-w-0 flex-1 truncate text-fg-mid">
-              {player?.name ?? team?.name ?? '—'}
+              {player?.name ?? team?.name ?? '-'}
               {player && team && (
                 <span className="ml-1.5 text-[11px] text-fg-dim">({team.name})</span>
               )}

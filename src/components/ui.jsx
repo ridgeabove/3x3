@@ -1,7 +1,7 @@
 import { Loader2, AlertTriangle, Inbox } from 'lucide-react'
 import { useI18n } from '../lib/i18n'
 
-/** Section band — the yellow/black poster stripe used to head every list. */
+/** Section band: the yellow/black poster stripe used to head every list. */
 export function Band({ children, tone = 'dark', right = null, className = '' }) {
   const tones = {
     dark: 'bg-panel-2 text-fg-mid border-line',

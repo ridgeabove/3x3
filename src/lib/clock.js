@@ -66,14 +66,14 @@ export function formatClock(ms, { tenths = true } = {}) {
   return `${m}:${String(s).padStart(2, '0')}`
 }
 
-/** "12.0" for the shot clock — always one decimal, no minutes. */
+/** "12.0" for the shot clock: always one decimal, no minutes. */
 export function formatShotClock(ms) {
   return (Math.ceil(Math.max(0, ms) / 100) / 10).toFixed(1)
 }
 
 /**
  * Re-renders `intervalMs` at a time, but only while the match clock is actually
- * running — a paused or finished game costs nothing.
+ * running. A paused or finished game costs nothing.
  */
 export function useTicker(active, intervalMs = 100) {
   const [, setTick] = useState(0)

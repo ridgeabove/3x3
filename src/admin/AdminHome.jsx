@@ -49,7 +49,7 @@ function AdminMatchRow({ match }) {
 
       <div className="min-w-0 flex-1">
         <p className="truncate text-[13px] text-fg">
-          {home} <span className="text-fg-dim">–</span> {away}
+          {home} <span className="text-fg-dim">v</span> {away}
         </p>
         <p className="flex items-center gap-2 text-[10px] text-fg-dim">
           <StatusTag match={match} />
