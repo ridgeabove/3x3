@@ -88,6 +88,26 @@ export default function InfoPage() {
         <p className="mt-4 text-center text-[11px] text-fg-dim">
           3x3 Albania · Shkoder · {new Date().getFullYear()}
         </p>
+
+        {/*
+          Build credit. The two hexes are Ridge's own brand colours, so they stay
+          literal here instead of becoming design tokens: nothing else in the app
+          should ever reuse them.
+        */}
+        <div className="mt-3 flex items-center justify-center gap-1">
+          <span className="stamp text-[11px] leading-none tracking-[0.14em]">
+            <span className="text-[#9f6bf2]">POWERED</span>{' '}
+            <span className="text-[#f97316]">BY</span>
+          </span>
+          <img
+            src="/LogoNoBG.png"
+            alt="Ridge"
+            width="843"
+            height="488"
+            loading="lazy"
+            className="h-10 w-auto object-contain"
+          />
+        </div>
       </div>
     </>
   )
